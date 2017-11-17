@@ -5,10 +5,13 @@
 #include "commands.h"
 #include "built_in.h"
 #include "utils.h"
+#include "signal_handlers.h"
 
 int main()
 {
   char buf[8096];
+catch_sigint(0);
+catch_sigtstp(0);
 
   while (1) {
     fgets(buf, 8096, stdin);
@@ -26,6 +29,7 @@ int main()
       break;
     }
   }
+
 
   return 0;
 }
